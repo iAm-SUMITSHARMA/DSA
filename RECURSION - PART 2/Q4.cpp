@@ -1,0 +1,30 @@
+// Question 4 : TOWER OF HANOI (Important!)
+// You have 3 towers and N disks of different sizes which can slide onto any tower. The
+// puzzle starts with disks sorted in ascending order of size from top to bottom (i.e., each
+// disk sits on top of an even larger one).
+// You have the following constraints:
+// (1) Only one disk can be moved at a time.
+// (2) A disk is slid off the top of one tower onto another tower.
+// (3) A disk cannot be placed on top of a smaller disk. Write a program to move the disks
+// from the first tower to the
+// last using Stacks.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+void towerOfHanoi(int n, string src, string helper, string dest)
+{
+    if (n == 1)
+    {
+        cout << "transfer disk " << n << " from " << src << " to " << dest << endl;
+        return;
+    }
+    
+}
+
+int main()
+{
+    int n = 4;
+    towerOfHanoi(4, "A", "B", "C");
+    return 0;
+}

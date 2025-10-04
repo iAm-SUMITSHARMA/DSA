@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int m, n;
+    cout << "Enter the row and column of the matrix: " << endl;
+    cin >> m >> n;
+    int a[m][n];
+    cout << "Enter elements of matrix: " << endl;
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cin >> a[i][j];
+        }
+    }
+    cout << "Here is your reverse verticle wave form matrix: " << endl;
+    // 1 2 3
+    // 4 5 6
+    // 7 8 9         =>           9 6 3 2 5 8 7 4 1
+
+    for (int i = m - 1; i >= 0; i--)
+    {
+        if (i % 2 == 0)
+        {
+            for (int j = n-1; j >=0; j--)
+            {
+              cout<<a[j][i]<<" ";  
+            }
+        }
+        else{
+            for (int j = 0; j < n; j++)
+            {
+                cout<<a[j][i]<<" ";
+            }
+            
+        }
+    }
+}
+
+//     for (int j = n - 1; j >= 0; j--)
+//     {
+//         if (j % 2 == 0)
+//         {
+//             for (int k = m - 1; k >= 0; k--)
+//             {
+//                 cout << a[k][j] << " ";
+//             }
+//         }
+//         else
+//         {
+//             for (int k = 0; k < m; k++)
+//             {
+//                 cout << a[k][j] << " ";
+//             }
+//         }
+//     }
+// }
