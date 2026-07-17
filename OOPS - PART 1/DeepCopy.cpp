@@ -23,15 +23,24 @@ public:
         cout << "Copying original to new..\n";
         name = original.name;
         color = original.color;
-        mileage = new int;
-        *mileage = *original.mileage;
+        mileage = new int;  // allocate new memory
+        *mileage = *original.mileage; // copy value , not pointer
     }
 };
+// - Output: "Copying original to new.." (from your copy constructor).
+// - Now:
+// - c1.mileage → heap memory with value 12.
+// - c2.mileage → separate heap memory with value 12.
+
+// - Because of deep copy, c2.mileage and c1.mileage are independent.
+// - Changing c2.mileage does not affect c1.mileage.
+// - This is the key difference from shallow copy (where both would have changed).
+
 
 int main()
 {
-    Car c1("maruti 800", "red");
-    Car c2(c1);
+    Car c1("maruti 800", "red"); // constructor called
+    Car c2(c1); // deep copy constructor called
     cout << c2.name << endl;
     cout << c2.color << endl;
     cout << *c2.mileage << endl;

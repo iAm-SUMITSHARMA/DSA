@@ -18,15 +18,16 @@
 // }
 
 // Qn - Count total ways to tile a floor (2*n) with tiles (2*1)...
+
 #include <iostream>
 using namespace std;
 int totalWay(int n)
 {
-    if (n == 0 || n == 1)
+    if (n == 0 | n == 1)
         return 1;
     return totalWay(n - 1) + totalWay(n - 2);
 }
 int main()
 {
-    cout << totalWay(5) << endl;
+    cout << totalWay(4) << endl;
 }

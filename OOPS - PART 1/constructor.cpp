@@ -53,4 +53,6 @@ int main()
     cout << "Car color:" << c1.getColor() << endl;
     c1.start();
     c1.stop();
+    cout << "Car name: " << c2.getName() << endl;
+    cout << "Car color:" << c2.getColor() << endl;
 }

@@ -23,6 +23,8 @@ public:
     {
         eat();
         cout << "swims" << endl;
+        // eat();
+        // breathe();
     }
 };
 

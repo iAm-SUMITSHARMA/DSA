@@ -106,6 +106,8 @@ Special Constructor (default) which is used to copy properties of one object int
 *Shallow copy* copies references to original array(or dynamically allocating memory). But array remains same..\
 Compiler generally creates a *shallow copy* for array.
 
+- Definition: A shallow copy duplicates an object but only copies the references (pointers) to dynamically allocated memory, not the actual memory content.
+
 -> Shallow copy me agar ham kuch c2 me change krenge to wo c1 me bhi change ho jaayega... You can see it clearly in ShallowCopy.cpp..
 
    ### Here is the reference: 
@@ -147,7 +149,25 @@ Compiler generally creates a *shallow copy* for array.
            cout << "Twada butti daa sount " << endl;
        }
 
+- Effect:
+- Static members (like string name, string color) are copied correctly because they manage their own memory.
+- Dynamically allocated members (like int *mileage) are copied as pointers. So both objects point to the same memory location.
+
+- Result:
+- If you change c2.mileage, it also changes c1.mileage because both point to the same integer in memory.
+- This is why in your program, after setting *c2.mileage = 10, printing *c1.mileage also shows 10.
+
+-----------------------------------------------------------
+
 *Deep copy* created a brand new copy of the array.
+- Definition: A deep copy duplicates not only the object but also allocates new memory for dynamically allocated members and copies their values.
+
+- Effect:
+- Each object has its own separate copy of the data.
+- Changes in one object do not affect the other.
+
+- Implementation:
+- You need to explicitly define a copy constructor that allocates new memory and copies the value.
 
 Note : We need to define own copy constructor when *deep copy* is needed i.e. when class contains pointers to dynamically allocated memory.
    ### Here is the reference for *deep copy*:
@@ -172,9 +192,18 @@ Note : We need to define own copy constructor when *deep copy* is needed i.e. wh
         cout << "Copying original to new..\n";
         name = original.name;
         color = original.color;
-        mileage = new int;
-        *mileage = *original.mileage;
+        mileage = new int; // allocate new memory
+        *mileage = *original.mileage; // copy value, not pointer
     }
+
+# This is deep copy:
+- Instead of copying the pointer address, you allocate new memory for mileage.
+- Then you copy the value stored in original.mileage.
+- Result: c1.mileage and c2.mileage point to different memory blocks, each holding the same value initially.
+
+# Why Deep Copy Matters
+- Shallow copy problem: Both objects share the same pointer → changes affect both, and destructors cause double-delete errors.
+- Deep copy solution: Each object has its own memory → safe, independent values.
 
 # DESTRUCTOR:
 -> Destructor is complete *opposite of constructor*...

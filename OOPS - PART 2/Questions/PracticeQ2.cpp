@@ -6,7 +6,7 @@ using namespace std;
 class Base
 {
 public:
-    virtual void print()
+    virtual void print() // virtual function
     {
         cout << "Base>>" << endl;
     }
@@ -15,7 +15,7 @@ public:
 class Derived : public Base
 {
 public:
-    void print() override
+    void print() override // redefined function
     {
         cout << "Derived...>>" << endl;
     }

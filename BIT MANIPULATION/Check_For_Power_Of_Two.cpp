@@ -2,7 +2,7 @@
 using namespace std;
 bool CheckForPowerOfTwo(int num)
 {
-    if (!((num) & (num - 1))) // in this case the bit mask is (num -1);
+    if (!((num) & (num - 1))) //((num & (num - 1)) == 0) // in this case the bit mask is (num -1);
     {
         cout << "The given bit is a power of two..." << endl;
         return true;

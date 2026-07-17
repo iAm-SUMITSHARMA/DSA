@@ -5,19 +5,6 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-// int findFirstOcc(vector<int> vec, int target, int i)
-// {
-//     if (i == vec.size()) // base case
-//     {
-//         return -1;
-//     }
-//     if (vec[i] == target)
-//     {
-//         return i;
-//     }
-//     return findFirstOcc(vec, target, i + 1);
-// }
-
 int findFirstOcc(vector<int> vec, int target, int i)
 {
     if (i == vec.size())
