@@ -221,7 +221,7 @@ Check if Array is Sorted & Rotated
 42   -> Trapping Rain Water[done]
 239  -> Sliding Window Maximum
 
-224  -> Basic Calculator
+224  -> Basic Calculator[done]*
 227  -> Basic Calculator II
 772  -> Basic Calculator III - Locked
 726  -> Number of Atoms
@@ -253,7 +253,7 @@ Must Do top 15:
 907  -> Sum of Subarray Minimums
 84   -> Largest Rectangle in Histogram[done]
 42   -> Trapping Rain Water[done]
-224  -> Basic Calculator
+224  -> Basic Calculator[done]*
 
 
 
@@ -263,11 +263,11 @@ Must Do top 15:
 933  Number of Recent Calls[done]
 622  Design Circular Queue[done]*
 649  Dota2 Senate
-950  Reveal Cards In Increasing Order
+950  Reveal Cards In Increasing Order[done]
 1823 Find the Winner of the Circular Game
 641  Design Circular Deque
-102  Binary Tree Level Order Traversal
-199  Binary Tree Right Side View
+102  Binary Tree Level Order Traversal[done]
+199  Binary Tree Right Side View[done]
 994  Rotting Oranges
 542  01 Matrix
 752  Open the Lock
@@ -277,8 +277,7 @@ Must Do top 15:
 1438 Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
 1696 Jump Game VI
 1425 Constrained Subsequence Sum
-862  Shortest Subarray with Sum at Least K
-126  Word Ladder II
+
 
 862 Shortest Subarray with Sum at Least K ⭐⭐⭐
 2398 Maximum Number of Robots Within Budget ⭐⭐
@@ -324,7 +323,7 @@ Must Do top 15:
 623  Add One Row to Tree
 337 House Robber III
 987 Vertical Order Traversal - hard
-124 Binary Tree Maximum Path Sum - hard
+124 Binary Tree Maximum Path Sum - hard[done]*
 
 # BINARY SEARCH TREES:
 700  -> Search BST[done]
@@ -364,6 +363,15 @@ Must Do top 15:
 378  Kth Smallest Element in a Sorted Matrix
 621  Task Scheduler
 767  Reorganize String
-295  Find Median from Data Stream
+295  Find Median from Data Stream[done]**
 23   Merge K Sorted Lists[done]*
 
+
+
+
+----------->> AMAZON, TCS---->>
+238
+
+
+# HASHING:
+LeetCode 560: Subarray Sum Equals K.

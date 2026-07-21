@@ -38,3 +38,28 @@ m[key] =val;
 cout<<m[key];
 m.count(key); // 1 if key present, 0 if key not present
 m.erase(key);
+
+
+## 2. SETS: 
+in maths- Sets : unique elements..
+--->> in c++: we can sets store just keys... and all keys are unique..
+
+
+-->> SETS USE RED BLACK TREE: TC: O(logn)
+##  UNORDERED SETS:
+
+unordered_set<key>s;
+s.insert(key)
+s.find(key)
+s.erase(key)
+
+-->> Unordered sets internally use hash table -> O(1) but in worst case case O(n)
+
+
+## NORMAL SETS:
+---->> TC: O(logn)
+---->> ORDERED MAINTAIN
+set<key>s;
+s.insert(key)
+s.find(key)
+s.erase(key)
