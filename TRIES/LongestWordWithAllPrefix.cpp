@@ -5,6 +5,7 @@
 // dict[] = {"a", "banana", "app","appl","ap", "apply", "apple"}
 
 // if length same : then we will do lexiographically smallest
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,7 +16,6 @@ class Node
 public:
     unordered_map<char, Node *> children;
     bool ifEnd;
-    int freq; // frequency
 
     Node()
     {
@@ -29,7 +29,6 @@ public:
     Trie()
     {
         root = new Node();
-        root->freq = -1;
     }
     void insert(string key)
     {
@@ -39,64 +38,45 @@ public:
             if ((temp->children.count(key[i])) == 0)
             {
                 temp->children[key[i]] = new Node(); // insert
-                temp->children[key[i]]->freq = 1;
-            }
-            else
-            {
-                temp->children[key[i]]->freq++;
             }
             temp = temp->children[key[i]];
         }
         temp->ifEnd = true;
     }
 
-    bool search(string key)
+    void longestWordHelper(Node *root, string &ans, string temp)
     {
-        Node *temp = root;
-        for (int i = 0; i < key.size(); i++)
+        for (pair<char, Node *> child : root->children)
         {
-            if (temp->children.count(key[i]))
+            if (child.second->ifEnd)
             {
-                temp = temp->children[key[i]];
-            }
-            else
-            {
-                return false;
+                temp += child.first;
+                if ((temp.size() == ans.size() && temp < ans) || temp.size() > ans.size())
+                {
+                    ans = temp;
+                }
+                longestWordHelper(child.second, ans, temp);
+                temp = temp.substr(0, temp.size() - 1);
             }
         }
-
-        return temp->ifEnd ? true : false;
     }
-
-    bool startsWith(string prefix)
+    string longestWord()
     {
-        Node *temp = root;
-        for (int i = 0; i < prefix.size(); i++)
-        {
-            if (temp->children[prefix[i]])
-            {
-                temp = temp->children[prefix[i]];
-            }
-            else
-            {
-                return false;
-            }
-        }
-        return true;
+        string ans = "";
+        longestWordHelper(root, ans, "");
+        return ans;
     }
 };
 
 int main()
 {
-    vector<string> words = {"apple", "app", "mango", "man", "woman"};
+    string words[] = {"a", "banana", "app", "appl", "ap", "apply", "apple"};
 
     Trie trie;
-    for (int i = 0; i < words.size(); i++)
+    for (string str : words)
     {
-        trie.insert(words[i]);
+        trie.insert(str);
     }
-    string prefix1 = "app";
-    string prefix2 = "moon";
-    cout << trie.startsWith(prefix1) << endl;
-    cout << trie.startsWith(prefix2) << endl;
+
+    cout << trie.longestWord() << endl;
 }

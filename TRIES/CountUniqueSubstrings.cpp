@@ -14,7 +14,6 @@ class Node
 public:
     unordered_map<char, Node *> children;
     bool ifEnd;
-    int freq; // frequency
 
     Node()
     {
@@ -28,7 +27,6 @@ public:
     Trie()
     {
         root = new Node();
-        root->freq = -1;
     }
     void insert(string key)
     {
@@ -38,64 +36,38 @@ public:
             if ((temp->children.count(key[i])) == 0)
             {
                 temp->children[key[i]] = new Node(); // insert
-                temp->children[key[i]]->freq = 1;
-            }
-            else
-            {
-                temp->children[key[i]]->freq++;
             }
             temp = temp->children[key[i]];
         }
         temp->ifEnd = true;
     }
 
-    bool search(string key)
+    int countNode(Node *root)
     {
-        Node *temp = root;
-        for (int i = 0; i < key.size(); i++)
+        if (root == nullptr)
+            return 0;
+        int count = 0;
+        for (auto child : root->children)
         {
-            if (temp->children.count(key[i]))
-            {
-                temp = temp->children[key[i]];
-            }
-            else
-            {
-                return false;
-            }
+            count += countNode(child.second);
         }
-
-        return temp->ifEnd ? true : false;
+        return count + 1;
     }
-
-    bool startsWith(string prefix)
+    int countUniqueStr()
     {
-        Node *temp = root;
-        for (int i = 0; i < prefix.size(); i++)
-        {
-            if (temp->children[prefix[i]])
-            {
-                temp = temp->children[prefix[i]];
-            }
-            else
-            {
-                return false;
-            }
-        }
-        return true;
+        return countNode(root);
     }
 };
 
 int main()
 {
-    vector<string> words = {"apple", "app", "mango", "man", "woman"};
-
+    string str = "ababa";
     Trie trie;
-    for (int i = 0; i < words.size(); i++)
+    // Adding suffixes to str
+    for (int i = 0; i < str.size(); i++)
     {
-        trie.insert(words[i]);
+        trie.insert(str.substr(i));
     }
-    string prefix1 = "app";
-    string prefix2 = "moon";
-    cout << trie.startsWith(prefix1) << endl;
-    cout << trie.startsWith(prefix2) << endl;
+
+    cout << trie.countUniqueStr() << endl;
 }
