@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <queue>
 using namespace std;
 class Graph
 {
@@ -34,21 +35,41 @@ public:
             cout << endl;
         }
     }
+
+    void dfsHelper(int u, vector<bool> &visited) // O(V+E)
+    {
+        visited[u] = true;
+        cout << u << " ";
+        list<int> neighbours = l[u];
+        for (int v : neighbours)
+        {
+            if (!visited[v])
+            {
+                dfsHelper(v, visited);
+            }
+        }
+    }
+    void dfs()
+    {
+        vector<bool> visited(7, false);
+        dfsHelper(0, visited);
+    }
 };
 int main()
 {
-    Graph graph(5);
+    Graph graph(7);
     // undirected graph
     graph.addEdge(0, 1);
-    graph.addEdge(1, 2);
+    graph.addEdge(0, 2);
     graph.addEdge(1, 3);
-    graph.addEdge(2, 3);
     graph.addEdge(2, 4);
+    graph.addEdge(3, 4);
+    graph.addEdge(3, 5);
+    graph.addEdge(4, 5);
+    graph.addEdge(5, 6);
 
     graph.print();
+
+    graph.dfs();
     return 0;
 }
-
-// HOMEWORK=======>>> lecture 6
-// implement list<pair<int,int>>[V]
-// for weighted-------...

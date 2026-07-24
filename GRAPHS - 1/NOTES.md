@@ -62,3 +62,15 @@ We can easily find if there is between two nodes or not... example: g[u][v] = 0 
 
 ## 4. Implicit Graph
 ---->> 2D matrix
+
+
+# Graph Traversals
+
+1. Breadh First Search(BFS)
+2. Depth First Search(DFS)
+
+## 1. Breadh First Search(BFS)
+==> Travel to *immediate Neighbour first*
+
+## 2. Depth First Search(BFS)
+==> Keep going to *1st unvisited Neighbour*
