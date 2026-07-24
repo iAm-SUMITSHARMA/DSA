@@ -35,6 +35,16 @@ git remote -v
 ```bash
 git branch
 ```
+## 💡 Tip for the future
+If you only want to upload one topic (like Hashing, Trie, Graphs, etc.), avoid git add . --
+ Instead, stage only the folder you want:
+
+ Example: 
+    git add "HASHING"
+    git add "TRIE"
+    git add "GRAPHS - 1"
+    git add "TREES"
+
 
 ### ⭐ The 4 commands you'll use 99% of the time
 git status
