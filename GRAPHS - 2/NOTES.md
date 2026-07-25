@@ -14,3 +14,7 @@ There are various algorithms to detect cycle in directed graph:
 --> *bfs
 --> *dfs
 --> *Kahn's algorithm(Topological sort)
+
+
+# Bipartite Graph
+No edge connects vertices of same set
