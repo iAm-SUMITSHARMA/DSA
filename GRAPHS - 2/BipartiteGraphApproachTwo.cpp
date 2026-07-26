@@ -41,35 +41,45 @@ public:
         }
     }
 
-    // checking bipartite with bfs approach:
-    bool checkBipartite()
+    // APPROACH 2:
+    // checking bipartite----
+
+    // if Acyclic (no cycle) -> TRUE
+    // if Even Cycle -> TRUE
+    // if Odd Cycle -> FALSE
+
+    bool ifAcyclic(int u, vector<bool> &visited)
     {
-        vector<int> color(V, -1);
-        queue<int> q;
-        q.push(0);
-        color[0] = 0;
-        while (q.size() > 0)
+        visited[u] = true;
+        list<int> neighbours = l[u];
+        for (int v : neighbours)
         {
-            int u = q.front();
-            q.pop();
-            list<int> neighbours = l[u];
-            for (int v : neighbours)
+            if (!visited[v])
             {
-                if (color[v] == -1)
+                if (ifAcyclic(v, visited))
                 {
-                    q.push(v);
-                    color[v] = !color[u];
-                }
-                else
-                {
-                    if (color[u] == color[v])
-                    {
-                        return false;
-                    }
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
+    }
+    bool checkBipartite()
+    {
+        vector<bool> visited(V, false);
+        queue<int> q;
+        q.push(0);
+        while (!q.empty())
+        {
+            int u = q.front();
+            q.pop();
+            if(ifAcyclic(u, visited)){
+                return true;
+            }
+            else{
+                
+            }
+        }
     }
 };
 int main()
